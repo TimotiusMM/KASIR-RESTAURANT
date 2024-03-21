@@ -58,6 +58,8 @@ include 'koneksi.php'; // Sisipkan file koneksi.php untuk mengakses variabel $na
 
                         <a href="order.php" class="nav-item nav-link active">
                             <i class="fa fa-keyboard me-2"></i>Entri Order</a>
+
+                            
                 </div>
                 
             </nav>
@@ -107,7 +109,7 @@ include 'koneksi.php'; // Sisipkan file koneksi.php untuk mengakses variabel $na
                 <div class="bg-light text-center rounded p-4">
                     <div class="d-flex align-items-center justify-content-between mb-4">
                         <h6 class="mb-0">DATA ORDER</h6>
-                        <a href="buatPesanan.php" class="btn btn-primary">Tambah Order</a>
+                        <a href="buatPesanan.php" class="btn btn-primary ">Tambah Order</a>
 
                     </div>
                     <div class="table-responsive">
@@ -123,6 +125,7 @@ include 'koneksi.php'; // Sisipkan file koneksi.php untuk mengakses variabel $na
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
+                            
                             <tbody>
                     <?php
                     // Sisipkan file koneksi.php untuk mengakses database
@@ -206,8 +209,11 @@ include 'koneksi.php'; // Sisipkan file koneksi.php untuk mengakses variabel $na
                         echo "<tr><td colspan='7'>Tidak ada data yang tersedia</td></tr>";
                     }
                     ?>
-                </tbody>
-                        </table>
+               </tbody>
+                </table>
+                <div class="mt-4">
+                <a href="cetakLaporan.php" target="_blank" class="btn btn-success float-start">Generate Laporan</a>
+                </div>
                     </div>
                 </div>
             </div>
