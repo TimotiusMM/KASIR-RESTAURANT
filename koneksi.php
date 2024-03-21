@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 break;
             default:
                 // Jika level tidak dikenali, arahkan ke halaman default
-                header("Location: dashboard.php");
+                header("Location: index.php");
                 break;
         }
     } else {
@@ -48,8 +48,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Username atau password salah.";
     }
 }
-
-
-// Tutup koneksi
-mysqli_close($koneksi);
 ?>

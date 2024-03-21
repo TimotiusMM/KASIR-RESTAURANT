@@ -55,9 +55,9 @@ include 'koneksi.php'; // Sisipkan file koneksi.php untuk mengakses variabel $na
                 </a>
                 
                 <div class="navbar-nav w-100">
-                <a href="kasir.php" class="nav-item nav-link active">
+                <a href="kasir.php" class="nav-item nav-link ">
                             <i class="fa fa-keyboard me-2"></i>Generate Laporan</a>
-                        <a href="transaksi.php" class="nav-item nav-link ">
+                        <a href="transaksi.php" class="nav-item nav-link active">
                             <i class="fa fa-keyboard me-2"></i>Entri Transaksi</a>
 
                 </div>

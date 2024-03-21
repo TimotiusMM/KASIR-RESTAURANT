@@ -56,7 +56,7 @@ include 'koneksi.php'; // Sisipkan file koneksi.php untuk mengakses variabel $na
                 
                 <div class="navbar-nav w-100">
                 <a href="owner.php" class="nav-item nav-link active">
-                        <i class="fa fa-tachometer-alt me-2"></i>generate</a>
+                        <i class="fa fa-tachometer-alt me-2"></i>Generate Laporan</a>
 
                 </div>
                 
@@ -73,7 +73,8 @@ include 'koneksi.php'; // Sisipkan file koneksi.php untuk mengakses variabel $na
                 <a href="#" class="sidebar-toggler flex-shrink-0">
                     <i class="fa fa-bars"></i>
                 </a>
-                
+                <span class="d-none d-lg-inline-flex ms-auto text-secondary">HALAMAN OWNER</span>
+
                 <div class="navbar-nav align-items-center ms-auto">
                     <div class="nav-item dropdown">
                         <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
