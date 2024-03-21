@@ -12,10 +12,9 @@ class MYPDF extends TCPDF {
         // Set font
         $this->SetFont('helvetica', 'B', 12);
         // Title
-
         $this->Ln(5);
 
-        $this->Cell(0, 10, 'Laporan Pesanan', 0, false, 'C', 0, '', 0, false, 'M', 'M');
+        $this->Cell(0, 10, 'Laporan Transaksi', 0, false, 'C', 0, '', 0, false, 'M', 'M');
 
         // Line break setelah judul
         $this->Ln(20);
@@ -38,10 +37,9 @@ $pdf = new MYPDF();
 // Set document properties
 $pdf->SetCreator(PDF_CREATOR);
 $pdf->SetAuthor('Your Name');
-$pdf->SetTitle('Laporan Pesanan');
-$pdf->SetSubject('Laporan Pesanan');
-$pdf->SetKeywords('TCPDF, PDF, Laporan, Pesanan');
-
+$pdf->SetTitle('Laporan Transaksi');
+$pdf->SetSubject('Laporan Transaksi');
+$pdf->SetKeywords('TCPDF, PDF, Laporan, Transaksi');
 
 // Add a page
 $pdf->AddPage();
@@ -50,32 +48,25 @@ $pdf->AddPage();
 $pdf->SetFont('helvetica', '', 10);
 
 // Ambil data dari tabel pesanan
-$query = "SELECT pesanan.idPesanan, pelanggan.namaPelanggan, menu.namaMenu, pesanan.jumlah, meja.kodeMeja, user.namaUser 
-          FROM pesanan 
-          INNER JOIN pelanggan ON pesanan.idPelanggan = pelanggan.idPelanggan 
-          INNER JOIN menu ON pesanan.idMenu = menu.idMenu 
-          INNER JOIN meja ON pesanan.idMeja = meja.idMeja 
-          INNER JOIN user ON pesanan.idUser = user.idUser";
+$query = "SELECT transaksi.idTransaksi, pesanan.idPesanan, transaksi.total, transaksi.bayar 
+          FROM transaksi 
+          INNER JOIN pesanan ON transaksi.idPesanan = pesanan.idPesanan";
 $result = mysqli_query($koneksi, $query);
 
 // Header
 $pdf->SetFont('helvetica', 'B', 10);
-$pdf->Cell(20, 10, 'ID Pesanan', 1, 0, 'C');
-$pdf->Cell(40, 10, 'Nama Pelanggan', 1, 0, 'C');
-$pdf->Cell(40, 10, 'Nama Menu', 1, 0, 'C');
-$pdf->Cell(20, 10, 'Jumlah', 1, 0, 'C');
-$pdf->Cell(30, 10, 'Kode Meja', 1, 0, 'C');
-$pdf->Cell(40, 10, 'Nama User', 1, 1, 'C');
+$pdf->Cell(25, 10, 'ID Transaksi', 1, 0, 'C');
+$pdf->Cell(25, 10, 'ID Pesanan', 1, 0, 'C');
+$pdf->Cell(30, 10, 'Total', 1, 0, 'C');
+$pdf->Cell(30, 10, 'Bayar', 1, 1, 'C');
 
 // Data
 $pdf->SetFont('helvetica', '', 10);
 while($row = mysqli_fetch_assoc($result)) {
-    $pdf->Cell(20, 10, $row['idPesanan'], 1, 0, 'C');
-    $pdf->Cell(40, 10, $row['namaPelanggan'], 1, 0, 'L');
-    $pdf->Cell(40, 10, $row['namaMenu'], 1, 0, 'L');
-    $pdf->Cell(20, 10, $row['jumlah'], 1, 0, 'C');
-    $pdf->Cell(30, 10, $row['kodeMeja'], 1, 0, 'C');
-    $pdf->Cell(40, 10, $row['namaUser'], 1, 1, 'L');
+    $pdf->Cell(25, 10, $row['idTransaksi'], 1, 0, 'C');
+    $pdf->Cell(25, 10, $row['idPesanan'], 1, 0, 'C');
+    $pdf->Cell(30, 10, $row['total'], 1, 0, 'R');
+    $pdf->Cell(30, 10, $row['bayar'], 1, 1, 'R');
 }
 
 

@@ -1,5 +1,5 @@
 <?php
-include 'koneksi.php'; // Sisipkan file koneksi.php untuk mengakses variabel $namaUser
+include '../koneksi.php'; // Sisipkan file koneksi.php untuk mengakses variabel $namaUser
 ?>
 
 
@@ -14,7 +14,7 @@ include 'koneksi.php'; // Sisipkan file koneksi.php untuk mengakses variabel $na
     <meta content="" name="description">
 
     <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+    <link href="../img/favicon.ico" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,14 +26,14 @@ include 'koneksi.php'; // Sisipkan file koneksi.php untuk mengakses variabel $na
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+    <link href="../lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="../lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -53,7 +53,7 @@ include 'koneksi.php'; // Sisipkan file koneksi.php untuk mengakses variabel $na
                 </a>
                 
                 <div class="navbar-nav w-100">
-                <a href="kasir.php" class="nav-item nav-link active ">
+                <a href="../kasir.php" class="nav-item nav-link active ">
                         <i class="fa fa-tachometer-alt me-2"></i>Entri Transaksi</a>
 
                        
@@ -91,7 +91,7 @@ include 'koneksi.php'; // Sisipkan file koneksi.php untuk mengakses variabel $na
                          <i class="fas fa-sign-out-alt"></i> <!-- Ikon logout -->
 </div>
                         <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
-                            <a href="index.php" class="dropdown-item">Log Out</a>
+                            <a href="../index.php" class="dropdown-item">Log Out</a>
                         </div>
                     </div>
                 </div>
