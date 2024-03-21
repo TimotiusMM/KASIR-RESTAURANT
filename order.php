@@ -107,15 +107,18 @@ include 'koneksi.php'; // Sisipkan file koneksi.php untuk mengakses variabel $na
                 <div class="bg-light text-center rounded p-4">
                     <div class="d-flex align-items-center justify-content-between mb-4">
                         <h6 class="mb-0">DATA ORDER</h6>
+                        <a href="buatPesanan.php" class="btn btn-primary">Tambah Order</a>
+
                     </div>
                     <div class="table-responsive">
                         <table class="table text-start align-middle table-bordered table-hover mb-0">
                             <thead>
                                 <tr class="text-dark">
                                     <th scope="col">No</th>
-                                    <th scope="col">Nama Menu</th>
                                     <th scope="col">Nama Pelanggan</th>
+                                    <th scope="col">Nama Menu</th>
                                     <th scope="col">Jumlah</th>
+                                    <th scope="col">Kode Meja</th>
                                     <th scope="col">Nama User</th>
                                     <th scope="col">Action</th>
                                 </tr>
@@ -143,6 +146,12 @@ include 'koneksi.php'; // Sisipkan file koneksi.php untuk mengakses variabel $na
                             $row_namaMenu = mysqli_fetch_assoc($result_namaMenu);
                             $namaMenu = $row_namaMenu['namaMenu'];
 
+                            // Query untuk mengambil namaMenu dari idMenu
+                            $query_kodeMeja = "SELECT kodeMeja FROM meja WHERE idMeja = '" . $row['idMeja'] . "'";
+                            $result_kodeMeja = mysqli_query($koneksi, $query_kodeMeja);
+                            $row_kodeMeja = mysqli_fetch_assoc($result_kodeMeja);
+                            $kodeMeja = $row_kodeMeja['kodeMeja'];
+ 
                             // Query untuk mengambil namaPelanggan dari idPelanggan
                             $query_namaPelanggan = "SELECT namaPelanggan FROM pelanggan WHERE idPelanggan = '" . $row['idPelanggan'] . "'";
                             $result_namaPelanggan = mysqli_query($koneksi, $query_namaPelanggan);
@@ -157,12 +166,13 @@ include 'koneksi.php'; // Sisipkan file koneksi.php untuk mengakses variabel $na
                     ?>
                             <tr>
                             <td><?php echo $no++; ?></td>
-                            <td><?php echo $namaMenu; ?></td>
                             <td><?php echo $namaPelanggan; ?></td>
+                            <td><?php echo $namaMenu; ?></td>
                             <td><?php echo $row['jumlah']; ?></td>
+                            <td><?php echo $kodeMeja; ?></td>
                             <td><?php echo $namaUser; ?></td>
                                 <td>
-                                <button type="button" class="btn btn-warning btn-sm edit-btn" onclick="window.location.href='editPesanan.php?idPesanan=<?php echo $row['idPesanan']; ?>'" data-id="<?php echo $row['idPesanan']; ?>" data-menu="<?php echo $row['idMenu']; ?>" data-pelanggan="<?php echo $row['idPelanggan']; ?>">Edit</button>
+                                <button type="button" class="btn btn-warning btn-sm edit-btn" onclick="window.location.href='editPesanan.php?idPesanan=<?php echo $row['idPesanan']; ?>'" data-id="<?php echo $row['idPesanan']; ?>" data-menu="<?php echo $row['idPesanan']; ?>" data-pelanggan="<?php echo $row['idPelanggan']; ?>">Edit</button>
                                     <!-- Modal Delete -->
                                     <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#hapusModal<?php echo $row['idPesanan']; ?>">Delete</button>
                                     <!-- Modal Delete End -->
@@ -181,7 +191,7 @@ include 'koneksi.php'; // Sisipkan file koneksi.php untuk mengakses variabel $na
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                            <a href="hapusMenu.php?idPesanan=<?php echo $row['idPesanan']; ?>" class="btn btn-danger btn-circle">
+                                            <a href="hapusPesanan.php?idPesanan=<?php echo $row['idPesanan']; ?>" class="btn btn-danger btn-circle">
                                                 <i class="fas fa-trash"></i>
                                             </a>
                                         </div>
@@ -193,7 +203,7 @@ include 'koneksi.php'; // Sisipkan file koneksi.php untuk mengakses variabel $na
                         }
                     } else {
                         // Jika query tidak mengembalikan hasil
-                        echo "<tr><td colspan='4'>Tidak ada data yang tersedia</td></tr>";
+                        echo "<tr><td colspan='7'>Tidak ada data yang tersedia</td></tr>";
                     }
                     ?>
                 </tbody>
